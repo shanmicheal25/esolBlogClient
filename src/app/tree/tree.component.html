@@ -1,0 +1,23 @@
+<ul *ngIf="treeData">
+  <li *ngFor="let node of treeData">
+    <span *ngIf="node.Children != 0"> </span>
+    <div class="text-css"> {{ node.commentText }} </div>
+
+
+    <!-- <div>
+      <span (click)="reply(node)" class="reply-css">{{ node.reply_count }} Reply</span>
+      <span (click)="toggleChild(node)" class="view-css" *ngIf="node.reply_count != 0">| view</span>
+    </div> -->
+
+    <div *ngIf="node.show_reply" class="input-group mb-3">
+      <input #textbox type="text" ([ngModel])="node.reply_comment_text"
+        (input)="node.reply_comment_text = $event.target.value" ([value])="node.reply_comment_text" class="form-control"
+        placeholder="Search">
+      <div class="input-group-append">
+        <button class="btn btn-success" (click)="sumbit(node)">Reply</button>
+      </div>
+    </div>
+    <br />
+    <app-tree *ngIf="node.show_comment" [treeData]="node.Children"></app-tree>
+  </li>
+</ul>

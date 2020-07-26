@@ -1,0 +1,31 @@
+<div class="input-group mb-3">
+    <input #textbox type="text" ([ngModel])="blogsData.text" (input)="blogsData.text = $event.target.value"
+        class="form-control" placeholder="New Post">
+    <div class="input-group-append">
+        <button class="btn btn-success" (click)="sumbitPost()">Post</button>
+    </div>
+</div>
+
+<div *ngIf="data">
+
+    <div *ngFor='let item of data.records'>
+        <br />
+        <div class="post-data">
+            <div class="date-format"> {{item.createAt | date :'medium' }} </div> <br />
+            <span>{{item.text}}</span>
+
+            <hr>
+            <div class="input-group mb-3">
+                <input #textbox type="text" ([ngModel])="textComment" (input)="textComment = $event.target.value"
+                    ([value])="textComment" class="form-control" placeholder="Your Comment">
+                <div class="input-group-append">
+                    <button class="btn btn-success" (click)="sumbit(item, item.id)">Comment</button>
+                </div>
+            </div>
+            <div>
+                <app-tree *ngIf="item.comments" [treeData]="item.comments"></app-tree>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>

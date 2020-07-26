@@ -1,0 +1,33 @@
+ul {
+    list-style-type: none !important;
+    padding-left: 30px;
+    
+}
+
+.text-css{
+    padding: 6px;
+    background-color: rgb(235, 215, 213);
+    font-size: large;
+    width: 90%;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+
+.input-group {
+    padding: 10px 40px;
+}
+
+.reply-css {
+    color: rgb(100, 107, 115);
+    font-size: small;
+    padding-left: 10px;
+    cursor:pointer;
+}
+
+.view-css {
+    color: rgb(100, 107, 115);
+    font-size: medium;
+    padding-left: 5px;
+    cursor:pointer;
+}
